@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]DigitIndicator digitIndicator;
     [SerializeField]Timer timer;
     [SerializeField]GameObject currentDigit;
+    [SerializeField] ParticleSystem particleSystem;
     void Start()
     {
         digitIndicator = FindFirstObjectByType<DigitIndicator>();
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         {
             //If the button Pressed is Wrong
             timer.timerSetHalf();
+            particleSystem.Play();
         }
     }
 }
