@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]Timer timer;
     [SerializeField]GameObject currentDigit;
     [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] CameraShake cameraShake;
 
     bool isbombdefused=false;
     bool isgameover=false;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
             //If the button Pressed is Wrong
             timer.timerSetHalf();
             particleSystem.Play();
+            cameraShake.SmallerShake();
         }
     }
 }
