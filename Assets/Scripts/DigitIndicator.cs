@@ -9,7 +9,7 @@ public class DigitIndicator : MonoBehaviour
     int digitLength;
     public GameObject CurrentDigit;
 
-    int digitIndex=0;
+    public int digitIndex=0;
     // Start is called before the first frame update
     void Start()
     {

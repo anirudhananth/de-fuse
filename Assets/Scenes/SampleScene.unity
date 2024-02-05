@@ -67,9 +67,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 0
@@ -478,6 +475,7 @@ MonoBehaviour:
   correctNumber: 9
   flashingSpeed: 0.5
   flashingDelay: 0.15
+  defusevoice: NowNextOneVoice
   falseSequence: 0100000002000000030000000400000005000000060000000700000008000000
   iscorrect: 0
 --- !u!1 &65845990
@@ -745,6 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerTimeInSecond: 120
   TextUI: {fileID: 100504359}
+  canbeep: 1
 --- !u!114 &100504359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,6 +1247,7 @@ MonoBehaviour:
   correctNumber: 2
   flashingSpeed: 0.5
   flashingDelay: 0.2
+  defusevoice: NiceAndSweetVoice
   falseSequence: 0900000003000000010000000400000005000000080000000700000006000000
   iscorrect: 0
 --- !u!1 &163606657
@@ -1581,6 +1581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digitIndicator: {fileID: 1755986459}
+  digitlength: 5
   timer: {fileID: 0}
   currentDigit: {fileID: 0}
   particleSystem: {fileID: 825797104}
@@ -2782,6 +2783,123 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &454111451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454111453}
+  - component: {fileID: 454111452}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &454111452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454111451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ccb9a82f9249b842b36d103be7025ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - name: Beep
+    clip: {fileID: 8300000, guid: f156cd98c3bec1447b35976de65399a1, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: StormAmbient
+    clip: {fileID: 8300000, guid: a3418f0e5632abe47a1704ba49e8993b, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 1
+    source: {fileID: 0}
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: 9c39d22679bb646499480b9b42ff1ea6, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: Alarm
+    clip: {fileID: 8300000, guid: be2cfa4f783207341ade464a7a47712a, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: SingleBeep
+    clip: {fileID: 8300000, guid: 644d2f3d7591ca1478e0a918a0b9a6f0, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: Breathe
+    clip: {fileID: 8300000, guid: 0ee1c0d9ef2161e47b661391506104b0, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: Heli
+    clip: {fileID: 8300000, guid: 978d275b481e3d44b816c7d2ea8c7504, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: NiceAndSweetVoice
+    clip: {fileID: 8300000, guid: 6fe0f42de85bb84498144f1a0f6bf8e1, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: NowNextOneVoice
+    clip: {fileID: 8300000, guid: 8eefb7af052f3894bb27e1b5d4bed786, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: SoundsGoodVoice
+    clip: {fileID: 8300000, guid: 33df24d42d203014db74fbe2109e7992, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: BombDefuseVoice
+    clip: {fileID: 8300000, guid: e9b161996b8701f48ad5563ce7f928bc, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: Correct
+    clip: {fileID: 8300000, guid: 67eef3096ad82de47a8975644d5a1a5e, type: 3}
+    volume: 1
+    pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &454111453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454111451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483734051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,6 +3216,7 @@ MonoBehaviour:
   correctNumber: 6
   flashingSpeed: 0.5
   flashingDelay: 0.5
+  defusevoice: SoundsGoodVoice
   falseSequence: 0100000002000000090000000800000007000000040000000500000003000000
   iscorrect: 0
 --- !u!1 &518777827
@@ -3246,7 +3365,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.096647
+  orthographic size: 5.34375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -15715,6 +15834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerTimeInSecond: 120
   TextUI: {fileID: 1176383940}
+  canbeep: 1
 --- !u!1 &1235207229
 GameObject:
   m_ObjectHideFlags: 0
@@ -16516,6 +16636,7 @@ MonoBehaviour:
   correctNumber: 1
   flashingSpeed: 0.5
   flashingDelay: 0.6
+  defusevoice: NiceAndSweetVoice
   falseSequence: 0900000008000000070000000600000005000000040000000300000002000000
   iscorrect: 0
 --- !u!1 &1315937888
@@ -17650,7 +17771,7 @@ Transform:
   m_GameObject: {fileID: 1520151194}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.19936797, w: 0.97992474}
-  m_LocalPosition: {x: -3.3203802, y: -1.8224087, z: -0.04918237}
+  m_LocalPosition: {x: -3.3203802, y: -2.069512, z: -0.04918237}
   m_LocalScale: {x: 0.7490187, y: 0.7490187, z: 0.7490187}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18265,7 +18386,7 @@ Transform:
   m_GameObject: {fileID: 1684365888}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6196203, y: 1.8075912, z: -0.04918237}
+  m_LocalPosition: {x: 1.6196203, y: 1.560488, z: -0.04918237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18691,6 +18812,7 @@ MonoBehaviour:
   - {fileID: 1313252234}
   - {fileID: 2004340751}
   CurrentDigit: {fileID: 0}
+  digitIndex: 0
 --- !u!212 &1755986460
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18952,7 +19074,7 @@ Transform:
   m_GameObject: {fileID: 1872029633}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0080405325, y: 0.16392446, z: 0.061099973}
+  m_LocalPosition: {x: 0.0080405325, y: -0.08317875, z: 0.061099973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19736,6 +19858,7 @@ MonoBehaviour:
   correctNumber: 8
   flashingSpeed: 0.5
   flashingDelay: 1
+  defusevoice: BombDefuseVoice
   falseSequence: 0900000002000000040000000300000005000000060000000700000001000000
   iscorrect: 0
 --- !u!1 &2082101238
@@ -20335,3 +20458,4 @@ SceneRoots:
   - {fileID: 1902663317}
   - {fileID: 825797105}
   - {fileID: 703625354}
+  - {fileID: 454111453}

@@ -10,18 +10,27 @@ public class Timer : MonoBehaviour
     [SerializeField] int timerTimeInSecond = 120; //Default set the timer to 120 seconds
     [SerializeField] TMP_Text TextUI;
     float timer = 120f;
+    float beeptimer = 1.0f;
+    float beeptime = 1.0f;
+    public bool canbeep=true;
     
     void Start()
     {
-        
+        beeptimer = beeptime;
         timer = timerTimeInSecond;
     }
 
     void Update()
     {
         timer-=Time.deltaTime;
-        TextUI.SetText(timetoString ((int)timer));
+        beeptimer-=Time.deltaTime;
+        if(canbeep)
+        {
+            TextUI.SetText(timetoString ((int)timer));
+            Beep();//Play beeping sound
+        }
 
+        
 
 //Debug Part
 /*
@@ -45,6 +54,24 @@ public class Timer : MonoBehaviour
 
     public void timerSetHalf()
     {
+        FindFirstObjectByType<AudioManager>().Play("Alarm");
         timer = timer/2;
+    }
+
+    private void Beep()
+    {
+        if(beeptimer<0)
+        {
+            FindFirstObjectByType<AudioManager>().Play("SingleBeep");
+            beeptimer = beeptime;
+        }
+        if(timer<=15 && timer>5)
+        {
+            beeptime = 0.5f;
+        }
+        if(timer<=5)
+        {
+            beeptime = 0.3f;
+        }
     }
 }

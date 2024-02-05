@@ -9,6 +9,8 @@ public class Passcode : MonoBehaviour
     [SerializeField] float flashingSpeed = 0.5f;
 
     [SerializeField] float flashingDelay = 0.5f;
+
+    [SerializeField] public string defusevoice = "NiceAndSweetVoice";
      Color correctColor = Color.green;
 
     private float flashingtimer = 0.5f;
