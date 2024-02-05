@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     bool isgameover=false;
     float gametime = 0.0f;
     bool heli=false;
-    [SerializeField] ParticleSystem particleSystem;
     void Start()
     {
         digitIndicator = FindFirstObjectByType<DigitIndicator>();
