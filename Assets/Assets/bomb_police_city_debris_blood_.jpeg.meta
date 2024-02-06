@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bomb_police_city_debris_blood__0: -7463413971345974049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

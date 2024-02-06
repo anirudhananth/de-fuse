@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      night_street_light_c4_debris_b_0: -6706493063848456480
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

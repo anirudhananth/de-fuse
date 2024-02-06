@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      explosion_bomb_city_debris_blo_0: -8464218721996998293
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      night, c4, debr 6cdf6371-8cc7-4746-84a6-a6586552252d_0: -200456308775267712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

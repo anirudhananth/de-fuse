@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      injured_police_city_night_dark_0: -633801048317586829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
