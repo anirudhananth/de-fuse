@@ -43,4 +43,15 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
+
+    public void setOrUnsetVolume() {
+        foreach(Sound s in Sounds)
+        {
+            if(s.name == "Sparks") {
+                s.source.volume = s.source.volume == 0 ? 0.5f : 0;
+            } else {
+                s.source.volume = s.source.volume == 0 ? 1 : 0;
+            }
+        }
+    }
 }

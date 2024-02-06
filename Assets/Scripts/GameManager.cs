@@ -10,23 +10,28 @@ public class GameManager : MonoBehaviour
     [SerializeField]int digitlength;
     [SerializeField]Timer timer;
     [SerializeField]GameObject currentDigit;
-    [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] ParticleSystem particleSystem1;
+    [SerializeField] ParticleSystem particleSystem2;
     [SerializeField] CameraShake cameraShake;
 
     bool isbombdefused=false;
     bool isgameover=false;
     float gametime = 0.0f;
     bool heli=false;
+    bool canShakeCamera = true;
+    bool canShowElectricity = true;
+    bool canPlaySoundEffects = true;
     void Start()
     {
         digitIndicator = FindFirstObjectByType<DigitIndicator>();
         timer = FindFirstObjectByType<Timer>();
+        particleSystem2.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentDigit = digitIndicator.CurrentDigit;
+        currentDigit = FindFirstObjectByType<DigitIndicator>().CurrentDigit;
         gametime+=Time.deltaTime;
         if(gametime>=3 && !heli)
         {
@@ -37,15 +42,15 @@ public class GameManager : MonoBehaviour
 
     public void ButtonPressed(int value)
     {
-        FindFirstObjectByType<AudioManager>().Play("ButtonPress");
+        if(canPlaySoundEffects) FindFirstObjectByType<AudioManager>().Play("ButtonPress");
         if(value == currentDigit.GetComponent<Passcode>().correctNumber)
         {
             //If the button Pressed is Correct
             currentDigit.GetComponent<Passcode>().iscorrect=true;
-           FindFirstObjectByType<AudioManager>().Play(currentDigit.GetComponent<Passcode>().defusevoice);
-            if(digitIndicator.digitIndex == digitlength-1)
+            if(canPlaySoundEffects) FindFirstObjectByType<AudioManager>().Play(currentDigit.GetComponent<Passcode>().defusevoice);
+            if(FindFirstObjectByType<DigitIndicator>().digitIndex == digitlength-1)
             {
-                FindFirstObjectByType<AudioManager>().Play("Correct");
+                if(canPlaySoundEffects) FindFirstObjectByType<AudioManager>().Play("Correct");
                 isbombdefused=true;
                 isgameover=true;
                 timer.canbeep=false;
@@ -55,8 +60,28 @@ public class GameManager : MonoBehaviour
         {
             //If the button Pressed is Wrong
             timer.timerSetHalf();
-            particleSystem.Play();
-            cameraShake.SmallerShake();
+            if(canShowElectricity) particleSystem1.Play();
+            if(canShakeCamera) cameraShake.SmallerShake();
         }
+    }
+
+    public void changeCameraShake()
+    {
+        canShakeCamera = !canShakeCamera;
+    }
+
+    public void changeShowElectricity()
+    {
+        canShowElectricity = !canShowElectricity;
+        if(canShowElectricity == true) {
+            particleSystem2.Play();
+        } else {
+            particleSystem2.Stop();
+        }
+    }
+
+    public void changeCanPlaySoundEffects()
+    {
+        canPlaySoundEffects = !canPlaySoundEffects;
     }
 }

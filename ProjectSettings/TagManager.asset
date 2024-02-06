@@ -44,3 +44,6 @@ TagManager:
   - name: Bomb
     uniqueID: 2213343073
     locked: 0
+  - name: Graphics
+    uniqueID: 994920935
+    locked: 0

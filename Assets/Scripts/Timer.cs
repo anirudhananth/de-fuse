@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
     float beeptimer = 1.0f;
     float beeptime = 1.0f;
     public bool canbeep=true;
+    bool canPlaySoundEffects = true;
     
     void Start()
     {
@@ -54,7 +55,7 @@ public class Timer : MonoBehaviour
 
     public void timerSetHalf()
     {
-        FindFirstObjectByType<AudioManager>().Play("Alarm");
+        if(canPlaySoundEffects) FindFirstObjectByType<AudioManager>().Play("Alarm");
         timer = timer/2;
     }
 
@@ -62,7 +63,7 @@ public class Timer : MonoBehaviour
     {
         if(beeptimer<0)
         {
-            FindFirstObjectByType<AudioManager>().Play("SingleBeep");
+            if(canPlaySoundEffects) FindFirstObjectByType<AudioManager>().Play("SingleBeep");
             beeptimer = beeptime;
         }
         if(timer<=15 && timer>5)
@@ -73,5 +74,10 @@ public class Timer : MonoBehaviour
         {
             beeptime = 0.3f;
         }
+    }
+
+    public void changeCanPlaySoundEffects()
+    {
+        canPlaySoundEffects = !canPlaySoundEffects;
     }
 }
