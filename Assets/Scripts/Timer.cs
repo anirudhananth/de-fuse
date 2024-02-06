@@ -30,16 +30,6 @@ public class Timer : MonoBehaviour
             TextUI.SetText(timetoString ((int)timer));
             Beep();//Play beeping sound
         }
-
-        
-
-//Debug Part
-/*
-        if(Input.anyKeyDown)
-        {
-            timerSetHalf();
-        }
-*/
     }
 
     private String timetoString (int timeInSecond)
@@ -79,5 +69,10 @@ public class Timer : MonoBehaviour
     public void changeCanPlaySoundEffects()
     {
         canPlaySoundEffects = !canPlaySoundEffects;
+    }
+
+    public float gettimer()
+    {
+        return timer;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,9 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] ParticleSystem particleSystem1;
     [SerializeField] ParticleSystem particleSystem2;
     [SerializeField] CameraShake cameraShake;
-
-    bool isbombdefused=false;
-    bool isgameover=false;
+    [SerializeField] GameObject EndScreen;
+    public bool isbombdefused=false;
+    public bool isgameover=false;
     float gametime = 0.0f;
     bool heli=false;
     bool canShakeCamera = true;
@@ -38,6 +39,22 @@ public class GameManager : MonoBehaviour
             FindFirstObjectByType<AudioManager>().Play("Heli");
             heli=true;
         }
+
+
+//Check Game Results
+        if(!isgameover && timer.gettimer()<0)
+        {
+            //Debug.Log("explode");
+            EndScreen.GetComponent<EndScreen>().bombExplodeEnd();
+            isgameover=true;
+        }
+
+        if(!isgameover && timer.gettimer()>0 && isbombdefused)
+        {
+           // Debug.Log("defuse");
+            EndScreen.GetComponent<EndScreen>().bombDefusedEnd();
+            isgameover=true;
+        }
     }
 
     public void ButtonPressed(int value)
@@ -52,7 +69,6 @@ public class GameManager : MonoBehaviour
             {
                 if(canPlaySoundEffects) FindFirstObjectByType<AudioManager>().Play("Correct");
                 isbombdefused=true;
-                isgameover=true;
                 timer.canbeep=false;
             }
         }

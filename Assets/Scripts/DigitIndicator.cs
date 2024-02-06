@@ -5,7 +5,6 @@ using UnityEngine;
 public class DigitIndicator : MonoBehaviour
 {
     [SerializeField] List<GameObject> Digits;
-
     int digitLength;
     public GameObject CurrentDigit;
 
@@ -44,6 +43,5 @@ public class DigitIndicator : MonoBehaviour
         }
         return true;
     }
-
 
 }
