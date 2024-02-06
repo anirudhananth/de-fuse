@@ -47,6 +47,10 @@ public class EndScreen : MonoBehaviour
         FinalResult.GetComponent<TMP_Text>().SetText("Bomb Defused");
         FinalResult.GetComponent<TMP_Text>().color= Color.green;
         //TODO:play bomb defuse end sound
+
+        FindFirstObjectByType<AudioManager>().Play("BombDefuseAudioreport");
+        FindFirstObjectByType<AudioManager>().Pause("Heli");
+        FindFirstObjectByType<AudioManager>().Pause("Sparks");
     }
 
     public void bombExplodeEnd()
@@ -62,6 +66,10 @@ public class EndScreen : MonoBehaviour
         FinalResult.GetComponent<TMP_Text>().SetText("Bomb Exploded");
         FinalResult.GetComponent<TMP_Text>().color = Color.red;
         //TODO:Play bomb explosion end sound
+        FindFirstObjectByType<AudioManager>().Play("BombExplodeAndReport");
+        FindFirstObjectByType<AudioManager>().Pause("Heli");
+        FindFirstObjectByType<AudioManager>().Pause("Sparks");
+        FindFirstObjectByType<AudioManager>().Pause("Beep");
     }
 
     public void restartGame()

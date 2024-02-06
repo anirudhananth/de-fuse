@@ -51,7 +51,7 @@ public class Timer : MonoBehaviour
 
     private void Beep()
     {
-        if(beeptimer<0)
+        if(beeptimer<0 && timer> 0)
         {
             if(canPlaySoundEffects) FindFirstObjectByType<AudioManager>().Play("SingleBeep");
             beeptimer = beeptime;
@@ -60,7 +60,7 @@ public class Timer : MonoBehaviour
         {
             beeptime = 0.5f;
         }
-        if(timer<=5)
+        if(timer<=5 && timer> 0)
         {
             beeptime = 0.3f;
         }

@@ -10,7 +10,7 @@ public class StartScreen : MonoBehaviour
     
     void Start()
     {
-        
+        FindFirstObjectByType<AudioManager>().Play("PoliceBriefing");
     }
 
     // Update is called once per frame
