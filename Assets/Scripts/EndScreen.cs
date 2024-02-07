@@ -12,6 +12,8 @@ public class EndScreen : MonoBehaviour
     bool isactive;
     [SerializeField] float fadingSpeed = 0.7f;
     [SerializeField] GameObject FinalResult;
+    [SerializeField] GameObject FinalImageExplode;
+    [SerializeField] GameObject FinalImageDefuse;
     float flashingtimer;
     bool isFadeComplete=true;
     void Start()
@@ -51,6 +53,9 @@ public class EndScreen : MonoBehaviour
         FindFirstObjectByType<AudioManager>().Play("BombDefuseAudioreport");
         FindFirstObjectByType<AudioManager>().Pause("Heli");
         FindFirstObjectByType<AudioManager>().Pause("Sparks");
+
+        FinalImageExplode.SetActive(false);
+        FinalImageDefuse.SetActive(true);
     }
 
     public void bombExplodeEnd()
@@ -70,6 +75,9 @@ public class EndScreen : MonoBehaviour
         FindFirstObjectByType<AudioManager>().Pause("Heli");
         FindFirstObjectByType<AudioManager>().Pause("Sparks");
         FindFirstObjectByType<AudioManager>().Pause("Beep");
+
+        FinalImageExplode.SetActive(true);
+        FinalImageDefuse.SetActive(false);
     }
 
     public void restartGame()
