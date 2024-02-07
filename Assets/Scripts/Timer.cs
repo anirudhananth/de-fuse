@@ -64,6 +64,13 @@ public class Timer : MonoBehaviour
         {
             beeptime = 0.3f;
         }
+        if(timer <= 15 && timer >= 1) {
+            if(!FindFirstObjectByType<AudioManager>().Sounds[16].source.isPlaying) {
+                FindFirstObjectByType<AudioManager>().Play("Heartbeat");
+            }
+        } else {
+            FindFirstObjectByType<AudioManager>().Stop("Heartbeat");
+        }
     }
 
     public void changeCanPlaySoundEffects()

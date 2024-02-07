@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         if(!isgameover && timer.gettimer()<0)
         {
             //Debug.Log("explode");
+            FindFirstObjectByType<AudioManager>().StopAll();
             EndScreen.GetComponent<EndScreen>().bombExplodeEnd();
             isgameover=true;
         }
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
         if(!isgameover && timer.gettimer()>0 && isbombdefused)
         {
            // Debug.Log("defuse");
+            FindFirstObjectByType<AudioManager>().StopAll();
             EndScreen.GetComponent<EndScreen>().bombDefusedEnd();
             isgameover=true;
         }
@@ -91,8 +93,10 @@ public class GameManager : MonoBehaviour
         canShowElectricity = !canShowElectricity;
         if(canShowElectricity == true) {
             particleSystem2.Play();
+            FindFirstObjectByType<AudioManager>().Play("Sparks");
         } else {
             particleSystem2.Stop();
+            FindFirstObjectByType<AudioManager>().Stop("Sparks");
         }
     }
 

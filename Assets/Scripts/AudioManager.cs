@@ -52,14 +52,38 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Pause();
     }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(Sounds, sound => sound.name == name);
+        if(s==null)
+        {
+            Debug.LogWarning("Sound " + name + " not found");
+            return;
+        }
+        s.source.Stop();
+    }
+
+    public void StopAll()
+    {
+        foreach(Sound s in Sounds)
+        {
+            s.source.Stop();
+        }
+    }
+
     public void setOrUnsetVolume() {
         foreach(Sound s in Sounds)
         {
-            if(s.name == "Sparks") {
-                s.source.volume = s.source.volume == 0 ? 0.5f : 0;
-            } else {
-                s.source.volume = s.source.volume == 0 ? 1 : 0;
-            }
+            s.source.volume = s.source.volume == 0 ? s.volume : 0;;
+        }
+    }
+
+    public void toggleBreathing() {
+        if(Sounds[15].source.isPlaying) {
+            Pause("Breathing");
+        } else {
+            Play("Breathing");
         }
     }
 }

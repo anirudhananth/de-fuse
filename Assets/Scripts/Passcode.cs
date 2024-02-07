@@ -11,7 +11,7 @@ public class Passcode : MonoBehaviour
     [SerializeField] float flashingDelay = 0.5f;
 
     [SerializeField] public string defusevoice = "NiceAndSweetVoice";
-     Color correctColor = Color.green;
+    Color correctColor = new Color(0f, 75/255f, 0f, 1f);
 
     private float flashingtimer = 0.5f;
 
